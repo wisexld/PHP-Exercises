@@ -12,7 +12,7 @@
  */
 function isPhoneNumberValid(string $phone): bool
 {
-    $validPhoneFormatRegex = "/([(1-9)]{5} [1-9]{3}-[0-9]{4})/";
+    $validPhoneFormatRegex = "/([(0-9)]{5} [0-9]{3}-[0-9]{4})/";
     $SUCCESS = 1;
 
     return preg_match($validPhoneFormatRegex, $phone) == $SUCCESS;
@@ -29,7 +29,7 @@ function isPhoneNumberValid(string $phone): bool
  */
 function removeSpecialCharacters(string $string): string
 {
-    $specialCharsRegex = "/[^a-z0-9 - _]/i";
+    $specialCharsRegex = "/[^a-z0-9_ -]/i";
 
     return preg_replace($specialCharsRegex, "", $string);
 }
@@ -104,3 +104,5 @@ function factorial(int $number): int
 
     return $number * factorial($number - 1);
 }
+
+print_r(splitRepeatedCharacters("aacacbbb"));
